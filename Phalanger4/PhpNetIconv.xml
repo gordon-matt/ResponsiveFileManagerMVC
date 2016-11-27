@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PhpNetIconv</name>
+    </assembly>
+    <members>
+        <member name="T:PHP.Library.Iconv.IconvLocalConfig">
+            <summary>
+            Script independent Iconv configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvLocalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvLocalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Loads configuration from XML.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Iconv.IconvGlobalConfig">
+            <summary>
+            Script dependent Iconv configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvGlobalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Loads configuration from XML.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvGlobalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="T:PHP.Library.Iconv.IconvConfiguration">
+            <summary>
+            Iconv extension configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvConfiguration.GetSetRestore(PHP.Core.LocalConfiguration,System.String,System.Object,PHP.Library.IniAction)">
+            <summary>
+            Gets, sets, or restores a value of a legacy configuration option.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvConfiguration.LegacyOptionsToIconv(System.Xml.XmlTextWriter,System.Collections.Hashtable,System.Boolean)">
+            <summary>
+            Writes Iconv legacy options and their values to XML text stream.
+            Skips options whose values are the same as default values of Phalanger.
+            </summary>
+            <param name="writer">XML writer.</param>
+            <param name="options">A hashtable containing PHP names and option values. Consumed options are removed from the table.</param>
+            <param name="writePhpNames">Whether to add "phpName" attribute to option nodes.</param>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvConfiguration.RegisterLegacyOptions">
+            <summary>
+            Registers legacy ini-options.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvConfiguration.GetLocal(PHP.Core.ScriptContext)">
+            <summary>
+            Gets local configuration associated with a specified script context.
+            </summary>
+            <param name="context">Scritp context.</param>
+            <returns>Local library configuration.</returns>
+        </member>
+        <member name="P:PHP.Library.Iconv.IconvConfiguration.Local">
+            <summary>
+            Gets the library configuration associated with the current script context.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.IconvConfiguration.DefaultLocal">
+            <summary>
+            Gets the default library configuration.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.IconvConfiguration.Global">
+            <summary>
+            Gets the global library configuration.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Iconv.IconvLibraryDescriptor">
+            <summary>
+            Describes the class library assembly content and configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvLibraryDescriptor.Loaded(PHP.Core.PhpLibraryAttribute,PHP.Core.LibraryConfigStore)">
+            <summary>
+            Called by the Core after the library is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvLibraryDescriptor.ParseConfig(PHP.Core.ConfigContextBase,PHP.Core.PhpConfigurationContext,System.Xml.XmlNode)">
+            <summary>
+            Parses a configuration section belonging to the MSSQL library. 
+            </summary>
+            <param name="result">A configuration context.</param>
+            <param name="context">The context of the configuration created by Phalanger Core.</param>
+            <param name="section">A XML node containing the configuration or its part.</param>
+            <returns>Updated configuration context.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.IconvLibraryDescriptor.CreateConfigContext">
+            <summary>
+            Creates empty library configuration context.
+            </summary>
+            <returns>An initialized configuration context. Should not be a <B>null</B> reference.</returns>
+        </member>
+        <member name="P:PHP.Library.Iconv.IconvLibraryDescriptor.Singleton">
+            <summary>
+            Stores one and only instance of the class that is created when the assembly is loaded.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Iconv.PhpNetIconv.Implementation">
+            <summary>
+            The implementation name
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Iconv.PhpNetIconv.Version">
+            <summary>
+            The implementation version
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Iconv.PhpNetIconv.TranslitEncOption">
+            <summary>
+            An optional string that can be appended to the output encoding name. Causes transliteration of characters that cannot be converted to the output encoding.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Iconv.PhpNetIconv.IgnoreEncOption">
+            <summary>
+            An optional string that can be appended to the output encoding name (before <see cref="F:PHP.Library.Iconv.PhpNetIconv.TranslitEncOption"/> if both are specified). Causes ignoring of characters that cannot be converted to the output encoding.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.ParseOutputEncoding(System.String,System.Boolean@,System.Boolean@)">
+            <summary>
+            Remove optional encoding options such as <see cref="F:PHP.Library.Iconv.PhpNetIconv.TranslitEncOption"/> or <see cref="F:PHP.Library.Iconv.PhpNetIconv.IgnoreEncOption"/>.
+            </summary>
+            <param name="encoding">Original output encoding stirng.</param>
+            <param name="transliterate">Is set to <c>true</c> if <see cref="F:PHP.Library.Iconv.PhpNetIconv.TranslitEncOption"/> was specified.</param>
+            <param name="discard_ilseq">Is set to <c>true</c> if <see cref="F:PHP.Library.Iconv.PhpNetIconv.IgnoreEncOption"/> was specified.</param>
+            <returns><paramref name="encoding"/> without optional options.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.ResolveEncoding(System.String)">
+            <summary>
+            Try to find <see cref="T:System.Text.Encoding"/> by its PHP name.
+            </summary>
+            <param name="encoding">Encoding name.</param>
+            <returns><see cref="T:System.Text.Encoding"/> instance or <c>null</c> if nothing was found.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_get_encoding(System.String)">
+            <summary>
+            Retrieve internal configuration variables of iconv extension.
+            </summary>
+            <param name="type">
+            The value of the optional type can be:
+            - all
+            - input_encoding
+            - output_encoding
+            - internal_encoding
+            </param>
+            <returns>Returns the current value of the internal configuration variable if successful or <c>false</c> on failure.
+            If <paramref name="type"/> is omitted or set to <c>all</c>, iconv_get_encoding() returns an array that stores all these variables.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_set_encoding(System.String,System.String)">
+            <summary>
+            Set current setting for character encoding conversion.
+            </summary>
+            <param name="type">The value of type can be any one of these:
+            - input_encoding
+            - output_encoding
+            - internal_encoding
+            </param>
+            <param name="charset">The character set.</param>
+            <returns>Returns <c>TRUE</c> on success or <c>FALSE</c> on failure.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_strlen(System.Object)">
+            <summary>
+            Returns the character count of string.
+            </summary>
+            <param name="str">The string.</param>
+            <returns>Returns the character count of str, as an integer.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_strlen(System.Object,System.String)">
+            <summary>
+            Returns the character count of string.
+            </summary>
+            <param name="str">The string.</param>
+            <param name="charset">If charset parameter is omitted, <paramref name="str"/> is assumed to be encoded in iconv.internal_encoding.</param>
+            <returns>Returns the character count of str, as an integer.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_strpos(System.Object,System.Object,System.Int32,System.String)">
+            <summary>
+            Finds position of first occurrence of a needle within a haystack.
+            In contrast to strpos(), the return value of iconv_strpos() is the number of characters that appear before the needle, rather than the offset in bytes to the position where the needle has been found. The characters are counted on the basis of the specified character set charset.
+            </summary>
+            <param name="haystack">The entire string.</param>
+            <param name="needle">The searched substring.</param>
+            <param name="offset">The optional offset parameter specifies the position from which the search should be performed.</param>
+            <param name="charset">If charset parameter is omitted, string are assumed to be encoded in iconv.internal_encoding.</param>
+            <returns>Returns the numeric position of the first occurrence of needle in haystack. If needle is not found, iconv_strpos() will return FALSE.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_strrpos(System.Object,System.Object,System.String)">
+            <summary>
+            Finds the last occurrence of a needle within a haystack.
+            In contrast to strrpos(), the return value of iconv_strrpos() is the number of characters that appear before the needle, rather than the offset in bytes to the position where the needle has been found. The characters are counted on the basis of the specified character set charset.
+            </summary>
+            <param name="haystack">The entire string.</param>
+            <param name="needle">The searched substring.</param>
+            <param name="charset">If charset parameter is omitted, string are assumed to be encoded in iconv.internal_encoding.</param>
+            <returns>Returns the numeric position of the last occurrence of needle in haystack. If needle is not found, iconv_strpos() will return FALSE.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv_substr(System.Object,System.Int32,System.Int32,System.String)">
+            <summary>
+            Cuts a portion of <paramref name="str"/> specified by the <paramref name="offset"/> and <paramref name="length"/> parameters.
+            </summary>
+            <param name="str">The original string.</param>
+            <param name="offset">If offset is non-negative, iconv_substr() cuts the portion out of str beginning at offset'th character, counting from zero.
+            If offset is negative, iconv_substr() cuts out the portion beginning at the position, offset characters away from the end of str.</param>
+            <param name="length">If length is given and is positive, the return value will contain at most length characters of the portion that begins at offset (depending on the length of string).
+            If negative length is passed, iconv_substr() cuts the portion out of str from the offset'th character up to the character that is length characters away from the end of the string. In case offset is also negative, the start position is calculated beforehand according to the rule explained above.</param>
+            <param name="charset">If charset parameter is omitted, string are assumed to be encoded in iconv.internal_encoding.
+            Note that offset and length parameters are always deemed to represent offsets that are calculated on the basis of the character set determined by charset, whilst the counterpart substr() always takes these for byte offsets.</param>
+            <returns>Returns the portion of str specified by the offset and length parameters.
+            If str is shorter than offset characters long, FALSE will be returned.</returns>
+        </member>
+        <member name="M:PHP.Library.Iconv.PhpNetIconv.iconv(System.String,System.String,System.Object)">
+            <summary>
+            Performs a character set conversion on the string str from in_charset to out_charset.
+            </summary>
+            <param name="in_charset">The input charset.</param>
+            <param name="out_charset">The output charset.
+            
+            If you append the string //TRANSLIT to out_charset transliteration is activated.
+            This means that when a character can't be represented in the target charset,
+            it can be approximated through one or several similarly looking characters.
+            
+            If you append the string //IGNORE, characters that cannot be represented in the target
+            charset are silently discarded. Otherwise, <paramref name="str"/> is cut from the first
+            illegal character and an E_NOTICE is generated.</param>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PHP.Library.Iconv.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.Strings.illegal_character">
+            <summary>
+              Looks up a localized string similar to Detected an illegal character in input string.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.Strings.translit">
+             <summary>
+               Looks up a localized string similar to # Copyright (C) 1999-2003 Free Software Foundation, Inc.
+            # This file is part of the GNU LIBICONV Library.
+            #
+            # The GNU LIBICONV Library is free software; you can redistribute it
+            # and/or modify it under the terms of the GNU Library General Public
+            # License as published by the Free Software Foundation; either version 2
+            # of the License, or (at your option) any later version.
+            #
+            # The GNU LIBICONV Library is distributed in the hope that it will be
+            # useful, but WITHOUT ANY WARRANTY; without even the implied war [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:PHP.Library.Iconv.Strings.wrong_charset">
+            <summary>
+              Looks up a localized string similar to Wrong charset &apos;{0}&apos;, conversion from &apos;{1}&apos; to &apos;{2}&apos; is not allowed.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Iconv.TranslitEncoderFallbackBuffer.currentReplacement">
+            <summary>
+            String that will be returned as the replacement for the fallbacked character.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Iconv.TranslitEncoderFallbackBuffer.currentReplacementIndex">
+            <summary>
+            Index in the <see cref="F:PHP.Library.Iconv.TranslitEncoderFallbackBuffer.currentReplacement"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

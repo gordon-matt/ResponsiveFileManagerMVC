@@ -1,0 +1,1558 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PhpNetGd2</name>
+    </assembly>
+    <members>
+        <member name="T:PHP.Library.Gd2.GdLocalConfig">
+            <summary>
+            Script independent mbstring configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdLocalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdLocalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Loads configuration from XML.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.GdGlobalConfig">
+            <summary>
+            Script dependent MSSQL configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdGlobalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Loads configuration from XML.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdGlobalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="T:PHP.Library.Gd2.GdConfiguration">
+            <summary>
+            mbstring extension configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdConfiguration.GetSetRestore(PHP.Core.LocalConfiguration,System.String,System.Object,PHP.Library.IniAction)">
+            <summary>
+            Gets, sets, or restores a value of a legacy configuration option.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdConfiguration.LegacyOptionsToXml(System.Xml.XmlTextWriter,System.Collections.Hashtable,System.Boolean)">
+            <summary>
+            Writes MySql legacy options and their values to XML text stream.
+            Skips options whose values are the same as default values of Phalanger.
+            </summary>
+            <param name="writer">XML writer.</param>
+            <param name="options">A hashtable containing PHP names and option values. Consumed options are removed from the table.</param>
+            <param name="writePhpNames">Whether to add "phpName" attribute to option nodes.</param>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdConfiguration.RegisterLegacyOptions">
+            <summary>
+            Registers legacy ini-options.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdConfiguration.GetLocal(PHP.Core.ScriptContext)">
+            <summary>
+            Gets local configuration associated with a specified script context.
+            </summary>
+            <param name="context">Scritp context.</param>
+            <returns>Local library configuration.</returns>
+        </member>
+        <member name="P:PHP.Library.Gd2.GdConfiguration.Local">
+            <summary>
+            Gets the library configuration associated with the current script context.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.GdConfiguration.DefaultLocal">
+            <summary>
+            Gets the default library configuration.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.GdConfiguration.Global">
+            <summary>
+            Gets the global library configuration.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpImage">
+            <summary>
+            Implements PHP functions provided by Gd2 extension.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.getimagesize(System.String)">
+            <summary>
+            Get the size of an image.
+            </summary> 
+            <param name="filename">This parameter specifies the file you wish to retrieve information about. It can reference a local file or (configuration permitting) a remote file using one of the supported streams.</param>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.getimagesize(System.String,PHP.Core.PhpReference)">
+            <summary>
+            Get the size of an image.
+            </summary> 
+            <param name="filename">This parameter specifies the file you wish to retrieve information about. It can reference a local file or (configuration permitting) a remote file using one of the supported streams.</param>
+            <param name="imageinfo">This optional parameter allows you to extract some extended information from the image file.</param>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.getimagesizefromstring(PHP.Core.PhpBytes)">
+            <summary>
+            Get the size of an image.
+            </summary>
+            <param name="bytes">Content of the image.</param>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.getimagesizefromstring(PHP.Core.PhpBytes,PHP.Core.PhpReference)">
+            <summary>
+            Get the size of an image.
+            </summary>
+            <param name="bytes">Content of the image.</param>
+            <param name="imageinfo">This optional parameter allows you to extract some extended information from the image file.</param>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.GetImageMime(System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Get MIME type corresponding to given <paramref name="format"/>.
+            </summary>
+            <param name="format"></param>
+            <returns>MIME type of given <paramref name="format"/>.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.iptcparse(PHP.Core.PhpBytes)">
+            <summary>
+            Parse a binary IPTC block into single tags.
+            </summary>
+            <param name="iptcblock">A binary IPTC block.</param>
+            <returns>Returns an array using the tagmarker as an index and the value as the value. It returns FALSE on error or if no IPTC data was found.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.iptcembed(PHP.Core.PhpBytes,System.String)">
+            <summary>
+            Embeds binary IPTC data into a JPEG image.
+            </summary>
+            <param name="iptcdata">The data to be written.</param>
+            <param name="jpeg_file_name">Path to the JPEG image.</param>
+            <returns>If success and spool flag is lower than 2 then the JPEG will not be returned as a string, FALSE on errors.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.iptcembed(PHP.Core.PhpBytes,System.String,System.Int32)">
+            <summary>
+            Embeds binary IPTC data into a JPEG image.
+            </summary>
+            <param name="iptcdata">The data to be written.</param>
+            <param name="jpeg_file_name">Path to the JPEG image.</param>
+            <param name="spool">Spool flag. If the spool flag is over 2 then the JPEG will be returned as a string.</param>
+            <returns>If success and spool flag is lower than 2 then the JPEG will not be returned as a string, FALSE on errors.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)">
+            <summary>
+            Get file extension for image type
+            </summary> 
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32,System.Boolean)">
+            <summary>
+            Get file extension for image type
+            </summary> 
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)">
+            <summary>
+            Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
+            </summary> 
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpImage.ImageType">
+            <summary>
+            Image types enumeration, corresponds to IMAGETYPE_ PHP constants.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.Unknown">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.GIF">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.JPEG">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.PNG">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.SWF">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.PSD">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.BMP">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.TIFF_II">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.TIFF_MM">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.JPC">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.JPEG2000">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.JP2">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.JPX">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.JB2">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.SWC">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.IFF">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.WBMP">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.XBM">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.ICO">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpImage.ImageType.Count">
+            <summary>
+            Image type constant used by the <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_mime_type(System.Int32)"/> and <see cref="M:PHP.Library.Gd2.PhpImage.image_type_to_extension(System.Int32)"/> functions.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.ReversedBytes(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Build reversed (if required) portion of a given byte array.
+            </summary>
+            <param name="array">Source array.</param>
+            <param name="offset">Index of the first byte.</param>
+            <param name="count">Amount of bytes to cut of (and reverse).</param>
+            <param name="reverse">True to reverse the portion of bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.ReadMarkerSize(System.IO.Stream)">
+            <summary>
+            Read next two bytes (marker size)
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.SkipVariable(System.IO.Stream)">
+            <summary>
+            Skip over a variable-length block; assumes proper length marker
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.GetNextMarker(System.IO.Stream,PHP.Library.Gd2.PhpImage.ImageSignature.JpegMarker,System.Int32,System.Int32)">
+            <summary>
+            Get next marker in jpeg file (starts with 0xff)
+            </summary>
+            <param name="stream"></param>
+            <param name="last_marker"></param>
+            <param name="comment_correction"></param>
+            <param name="ff_read"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.SaveMarker(PHP.Core.PhpArray@,System.IO.Stream,System.String)">
+            <summary>
+            Save specific jpeg marker into result array
+            </summary>
+            <param name="array"></param>
+            <param name="ms"></param>
+            <param name="markerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.GetExif(System.IO.Stream,PHP.Library.Gd2.PhpImage.ImageSignature.ImageInfo@,System.Boolean)">
+            <summary>
+            Extracts Exif information from specified memory stream.
+            </summary>
+            <param name="ms"></param>
+            <param name="info">Will be filled with image info.</param>
+            <param name="exif">Whether we are interested in additional EXIF data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.ReadByte(System.IO.MemoryStream,System.IO.Stream)">
+            <summary>
+            Read next byte from given <paramref name="buffer"/>. If buffer is at the end, read the next byte from the given <paramref name="stream"/> and buffer it.
+            </summary>
+            <param name="buffer">Buffer to read bytes primarily.</param>
+            <param name="stream">Stream that is used for shadow copying into the buffer.</param>
+            <returns>Value of the next byte converted to int or -1 if there is not more bytes in the <paramref name="stream"/>.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpImage.ImageSignature.ProcessImageType(System.IO.Stream,System.Boolean,PHP.Library.Gd2.PhpImage.ImageSignature.ImageInfo@,System.Boolean,System.Boolean)">
+            <summary>
+            Read the image type from the <paramref name="stream"/>. Advances the position in the stream accordingly.
+            </summary>
+            <param name="stream"></param>
+            <param name="quiet">True to output warning messages.</param>
+            <param name="info"></param>
+            <param name="collectInfo"></param>
+            <param name="collectExif"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpImage.ImageSignature.JpegMarker">
+            <summary>
+            List of possible Jpeg Exif Markers
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.Exif">
+            <summary>
+            Implements PHP functions provided by EXIF extension.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.read_exif_data(System.String)">
+            <summary>
+            This is alternative alias of <see cref="M:PHP.Library.Gd2.Exif.exif_read_data(System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.read_exif_data(System.String,System.String)">
+            <summary>
+            This is alternative alias of <see cref="M:PHP.Library.Gd2.Exif.exif_read_data(System.String,System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.read_exif_data(System.String,System.String,System.Boolean)">
+            <summary>
+            This is alternative alias of <see cref="M:PHP.Library.Gd2.Exif.exif_read_data(System.String,System.String,System.Boolean)"/>.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.read_exif_data(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            This is alternative alias of <see cref="M:PHP.Library.Gd2.Exif.exif_read_data(System.String,System.String,System.Boolean,System.Boolean)"/>.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_read_data(System.String)">
+            <summary>
+            Reads the EXIF headers from JPEG or TIFF
+            </summary>
+            <param name="filename">The name of the image file being read. This cannot be an URL.</param>
+            <returns>It returns an associative array where the array indexes are the header names and the array values are the values associated with those headers.
+            If no data can be returned, <c>FALSE</c> is returned.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_read_data(System.String,System.String)">
+            <summary>
+            Reads the EXIF headers from JPEG or TIFF
+            </summary>
+            <param name="filename">The name of the image file being read. This cannot be an URL.</param>
+            <param name="sections">Is a comma separated list of sections that need to be present in file to produce a result array. If none of the requested sections could be found the return value is FALSE.
+            
+            FILE:	FileName, FileSize, FileDateTime, SectionsFound
+            COMPUTED:	 html, Width, Height, IsColor, and more if available. Height and Width are computed the same way getimagesize() does so their values must not be part of any header returned. Also, html is a height/width text string to be used inside normal HTML.
+            ANY_TAG:	Any information that has a Tag e.g. IFD0, EXIF, ...
+            IFD0:	 All tagged data of IFD0. In normal imagefiles this contains image size and so forth.
+            THUMBNAIL:	 A file is supposed to contain a thumbnail if it has a second IFD. All tagged information about the embedded thumbnail is stored in this section.
+            COMMENT:	Comment headers of JPEG images.
+            EXIF:	 The EXIF section is a sub section of IFD0. It contains more detailed information about an image. Most of these entries are digital camera related.</param>
+            <returns>It returns an associative array where the array indexes are the header names and the array values are the values associated with those headers.
+            If no data can be returned, <c>FALSE</c> is returned.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_read_data(System.String,System.String,System.Boolean)">
+            <summary>
+            Reads the EXIF headers from JPEG or TIFF
+            </summary>
+            <param name="filename">The name of the image file being read. This cannot be an URL.</param>
+            <param name="sections">Is a comma separated list of sections that need to be present in file to produce a result array. If none of the requested sections could be found the return value is FALSE.
+            
+            FILE:	FileName, FileSize, FileDateTime, SectionsFound
+            COMPUTED:	 html, Width, Height, IsColor, and more if available. Height and Width are computed the same way getimagesize() does so their values must not be part of any header returned. Also, html is a height/width text string to be used inside normal HTML.
+            ANY_TAG:	Any information that has a Tag e.g. IFD0, EXIF, ...
+            IFD0:	 All tagged data of IFD0. In normal imagefiles this contains image size and so forth.
+            THUMBNAIL:	 A file is supposed to contain a thumbnail if it has a second IFD. All tagged information about the embedded thumbnail is stored in this section.
+            COMMENT:	Comment headers of JPEG images.
+            EXIF:	 The EXIF section is a sub section of IFD0. It contains more detailed information about an image. Most of these entries are digital camera related.</param>
+            <param name="arrays">Specifies whether or not each section becomes an array. The sections COMPUTED, THUMBNAIL, and COMMENT always become arrays as they may contain values whose names conflict with other sections.</param>
+            <returns>It returns an associative array where the array indexes are the header names and the array values are the values associated with those headers.
+            If no data can be returned, <c>FALSE</c> is returned.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_read_data(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Reads the EXIF headers from JPEG or TIFF
+            </summary>
+            <param name="filename">The name of the image file being read. This cannot be an URL.</param>
+            <param name="sections">Is a comma separated list of sections that need to be present in file to produce a result array. If none of the requested sections could be found the return value is FALSE.
+            
+            FILE:	FileName, FileSize, FileDateTime, SectionsFound
+            COMPUTED:	 html, Width, Height, IsColor, and more if available. Height and Width are computed the same way getimagesize() does so their values must not be part of any header returned. Also, html is a height/width text string to be used inside normal HTML.
+            ANY_TAG:	Any information that has a Tag e.g. IFD0, EXIF, ...
+            IFD0:	 All tagged data of IFD0. In normal imagefiles this contains image size and so forth.
+            THUMBNAIL:	 A file is supposed to contain a thumbnail if it has a second IFD. All tagged information about the embedded thumbnail is stored in this section.
+            COMMENT:	Comment headers of JPEG images.
+            EXIF:	 The EXIF section is a sub section of IFD0. It contains more detailed information about an image. Most of these entries are digital camera related.</param>
+            <param name="arrays">Specifies whether or not each section becomes an array. The sections COMPUTED, THUMBNAIL, and COMMENT always become arrays as they may contain values whose names conflict with other sections.</param>
+            <param name="thumbnail">When set to <c>TRUE</c> the thumbnail itself is read. Otherwise, only the tagged data is read.</param>
+            <returns>It returns an associative array where the array indexes are the header names and the array values are the values associated with those headers.
+            If no data can be returned, <c>FALSE</c> is returned.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_tagname(System.Int32)">
+            <summary>
+            Get the header name for an index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_imagetype(System.String)">
+            <summary>
+            Determine the type of an image
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_thumbnail(System.String)">
+            <summary>
+            Retrieve the embedded thumbnail of a TIFF or JPEG image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_thumbnail(System.String,PHP.Core.PhpReference)">
+            <summary>
+            Retrieve the embedded thumbnail of a TIFF or JPEG image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_thumbnail(System.String,PHP.Core.PhpReference,PHP.Core.PhpReference)">
+            <summary>
+            Retrieve the embedded thumbnail of a TIFF or JPEG image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.exif_thumbnail(System.String,PHP.Core.PhpReference,PHP.Core.PhpReference,PHP.Core.PhpReference)">
+            <summary>
+            Retrieve the embedded thumbnail of a TIFF or JPEG image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Exif.Tag.CompareTo(System.Object)">
+            <summary>
+            IComparable.CompareTo implementation.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpGd">
+            <summary>
+            Implements PHP functions provided by Gd2 extension.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.version">
+            <summary>
+            The GD version PHP was compiled against.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.major_version">
+            <summary>
+            The GD major version PHP was compiled against.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.minor_version">
+            <summary>
+            The GD minor version PHP was compiled against.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.release_version">
+            <summary>
+            The GD release version PHP was compiled against.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.extra_version">
+            <summary>
+            The GD "extra" version (beta/rc..) PHP was compiled against.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.bundled">
+            <summary>
+            When the bundled version of GD is used this is 1 otherwise its set to 0.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.gd_info">
+            <summary>
+            Retrieve information about the currently installed GD library
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.image2wbmp(PHP.Core.PhpResource)">
+            <summary>
+            Output WBMP image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.image2wbmp(PHP.Core.PhpResource,System.String)">
+            <summary>
+            Output WBMP image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.image2wbmp(PHP.Core.PhpResource,System.String,System.Int32)">
+            <summary>
+            Output WBMP image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagealphablending(PHP.Core.PhpResource,System.Boolean)">
+            <summary>
+            Turn alpha blending mode on or off for the given image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageantialias(PHP.Core.PhpResource,System.Boolean)">
+            <summary>
+            Should antialiased functions used or not
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagearc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a partial ellipse
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.AdjustAnglesAndSize(System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Adjust angles and size for same behavior as in PHP
+            </summary>
+            <param name="w"></param>
+            <param name="h"></param>
+            <param name="s"></param>
+            <param name="e"></param>
+            <param name="range"></param>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagechar(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Draw a character
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecharup(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Draw a character rotated 90 degrees counter-clockwise
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorallocate(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Allocate a color for an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.RGBToPHPColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            RGB values to PHP Color format
+            </summary>
+            <param name="red"></param>
+            <param name="green"></param>
+            <param name="blue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.PHPColorToNETColor(System.Int32)">
+            <summary>
+            Converts PHP Color format to .NET Color format (different alpha meaning)
+            </summary>
+            <param name="color">PHP Color</param>
+            <returns>.NET Color</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorallocatealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Allocate a color with an alpha level.  Works for true color and palette based images.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.RGBAToPHPColor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            RGBA values to PHP Color format.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorat(PHP.Core.PhpResource,System.Int32,System.Int32)">
+            <summary>
+            Get the index of the color of a pixel
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.NETColorToPHPColor(System.Drawing.Color)">
+            <summary>
+            Converts .NET Color format to PHP Color format
+            </summary>
+            <param name="col">.NET Color</param>
+            <returns>PHP Color</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorclosest(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get the index of the closest color to the specified color
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorclosestalpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Find the closest matching colour with alpha transparency
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorclosesthwb(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get the index of the color which has the hue, white and blackness nearest to the given color
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolordeallocate(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            De-allocate a color for an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorexact(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get the index of the specified color
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorexactalpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Find exact match for colour with transparency
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolormatch(PHP.Core.PhpResource,PHP.Core.PhpResource)">
+            <summary>
+            Makes the colors of the palette version of an image more closely match the true color version
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorresolve(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get the index of the specified color or its closest possible alternative
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorresolvealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Resolve/Allocate a colour with an alpha level.  Works for true colour and palette based images
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorset(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set the color for the specified palette index
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorsforindex(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            Get the colors for an index
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolorstotal(PHP.Core.PhpResource)">
+            <summary>
+            Find out the number of colors in an image's palette
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolortransparent(PHP.Core.PhpResource)">
+            <summary>
+            Define a color as transparent
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecolortransparent(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            Define a color as transparent
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageconvolution(PHP.Core.PhpResource,PHP.Core.PhpArray,System.Double,System.Double)">
+            <summary>
+            Apply a 3x3 convolution matrix, using coefficient div and offset
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecopy(PHP.Core.PhpResource,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Copy part of an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecopymerge(PHP.Core.PhpResource,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Merge one part of an image with another
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecopymergegray(PHP.Core.PhpResource,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Merge one part of an image with another
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecopyresampled(PHP.Core.PhpResource,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Copy and resize part of an image using resampling to help ensure clarity
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecopyresized(PHP.Core.PhpResource,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Copy and resize part of an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreate(System.Int32,System.Int32)">
+            <summary>
+            Create a new image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromgd(System.String)">
+            <summary>
+            Create a new image from GD file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromgd2(System.String)">
+            <summary>
+            Create a new image from GD2 file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromgd2part(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a new image from a given part of GD2 file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromgif(System.String)">
+            <summary>
+            Create a new image from GIF file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromjpeg(System.String)">
+            <summary>
+            Create a new image from JPEG file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefrompng(System.String)">
+            <summary>
+            Create a new image from PNG file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromstring(PHP.Core.PhpBytes)">
+            <summary>
+            Create a new image from the image stream in the string
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromwbmp(System.String)">
+            <summary>
+            Create a new image from WBMP file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromxbm(System.String)">
+            <summary>
+            Create a new image from XBM file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatefromxpm(System.String)">
+            <summary>
+            Create a new image from XPM file or URL
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagecreatetruecolor(System.Int32,System.Int32)">
+            <summary>
+            Create a new true color image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagedashedline(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a dashed line (DEPRECATED in PHP)
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagedestroy(PHP.Core.PhpResource)">
+            <summary>
+            Destroy an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageellipse(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw an ellipse
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefill(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Flood fill
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilledarc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a filled partial ellipse
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilledellipse(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw an ellipse
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilledpolygon(PHP.Core.PhpResource,PHP.Core.PhpArray,System.Int32,System.Int32)">
+            <summary>
+            Draw a filled polygon
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.DrawPoly(PHP.Core.PhpResource,PHP.Core.PhpArray,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Draws normal or filled polygon
+            </summary>
+            <param name="im"></param>
+            <param name="point"></param>
+            <param name="num_points"></param>
+            <param name="col"></param>
+            <param name="filled"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilledrectangle(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a filled rectangle
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilltoborder(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Flood fill to specific color
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            Applies a filter to an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32,System.Int32)">
+            <summary>
+            Applies a filter to an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Applies a filter to an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Applies a filter to an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Applies a filter to an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefontheight(System.Int32)">
+            <summary>
+            Get font height
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefontwidth(System.Int32)">
+            <summary>
+            Get font width
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageftbbox(System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Give the bounding box of a markerName using fonts via freetype2
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagefttext(PHP.Core.PhpResource,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Write text to the image using fonts via freetype2
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegammacorrect(PHP.Core.PhpResource,System.Double,System.Double)">
+            <summary>
+            Apply a gamma correction to a GD image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegd(PHP.Core.PhpResource,System.String)">
+            <summary>
+            Output GD image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegd2(PHP.Core.PhpResource,System.String,System.Int32,System.Int32)">
+            <summary>
+            Output GD2 image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegif(PHP.Core.PhpResource)">
+            <summary>
+            Output GIF image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegif(PHP.Core.PhpResource,System.String)">
+            <summary>
+            Output GIF image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegrabscreen">
+            <summary>
+            Grab a screenshot
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagegrabwindow(System.Int32,System.Int32)">
+            <summary>
+            Grab a window or its client area using a windows handle (HWND property in COM instance)
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageinterlace(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            Enable or disable interlace
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageistruecolor(PHP.Core.PhpResource)">
+            <summary>
+            return true if the image uses truecolor
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagejpeg(PHP.Core.PhpResource)">
+            <summary>
+            Output JPEG image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagejpeg(PHP.Core.PhpResource,System.String)">
+            <summary>
+            Output JPEG image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagejpeg(PHP.Core.PhpResource,System.String,System.Int32)">
+            <summary>
+            Output JPEG image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagelayereffect(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            Set the alpha blending flag to use the bundled libgd layering effects
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageline(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a line
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.CreatePen(System.Int32,PHP.Library.Gd2.PhpGdImageResource,System.Boolean)">
+            <summary>
+            Tries to create Pen most compatible to PHP drawing rules
+            </summary>
+            <param name="col"></param>
+            <param name="img"></param>
+            <param name="antiAliasable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imageloadfont(System.String)">
+            <summary>
+            Load a new font
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepalettecopy(PHP.Core.PhpResource,PHP.Core.PhpResource)">
+            <summary>
+            Copy the palette from the src image onto the dst image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepng(PHP.Core.PhpResource)">
+            <summary>
+            Output PNG image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepng(PHP.Core.PhpResource,System.String)">
+            <summary>
+            Output PNG image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepng(PHP.Core.PhpResource,System.String,System.Int32)">
+            <summary>
+            Output PNG image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepolygon(PHP.Core.PhpResource,PHP.Core.PhpArray,System.Int32,System.Int32)">
+            <summary>
+            Draw a polygon
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepsbbox(System.String,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Return the bounding box needed by a string if rasterized
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepscopyfont(System.Int32)">
+            <summary>
+            Make a copy of a font for purposes like extending or reenconding
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepsencodefont(PHP.Core.PhpResource,System.String)">
+            <summary>
+            To change a fonts character encoding vector
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepsextendfont(PHP.Core.PhpResource,System.Double)">
+            <summary>
+            Extend or or condense (if extend &lt; 1) a font
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepsfreefont(PHP.Core.PhpResource)">
+            <summary>
+            Free memory used by a font
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepsloadfont(System.String)">
+            <summary>
+            Load a new font from specified file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepsslantfont(PHP.Core.PhpResource,System.Double)">
+            <summary>
+            Slant a font
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagepstext(PHP.Core.PhpResource,System.String,PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+            <summary>
+            Rasterize a string over an image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagerectangle(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a rectangle
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagerotate(PHP.Core.PhpResource,System.Double,System.Int32)">
+            <summary>
+            Rotate an image using a custom angle
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagerotate(PHP.Core.PhpResource,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Rotate an image using a custom angle
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesavealpha(PHP.Core.PhpResource,System.Boolean)">
+            <summary>
+            Include alpha channel to a saved image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesetbrush(PHP.Core.PhpResource,PHP.Core.PhpResource)">
+            <summary>
+            Set the brush image to $brush when filling $image with the "IMG_COLOR_BRUSHED" color
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesetpixel(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set a single pixel
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesetstyle(PHP.Core.PhpResource,PHP.Core.PhpArray)">
+            <summary>
+            Set the line drawing styles for use with imageline and IMG_COLOR_STYLED.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesetthickness(PHP.Core.PhpResource,System.Int32)">
+            <summary>
+            Set line thickness for drawing lines, ellipses, rectangles, polygons etc.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesettile(PHP.Core.PhpResource,PHP.Core.PhpResource)">
+            <summary>
+            Set the tile image to $tile when filling $image with the "IMG_COLOR_TILED" color
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.GetFont(System.Int32,System.Drawing.Font@,System.Drawing.FontStyle@,System.Int32@)">
+            <summary>
+            Determine <see cref="T:System.Drawing.Font"/>, <see cref="T:System.Drawing.FontStyle"/> and font <paramref name="spacing"/> as close as possible to given <paramref name="font"/> index.
+            </summary>
+            <param name="font">PHP font index.</param>
+            <param name="fontText"></param>
+            <param name="style"></param>
+            <param name="spacing"></param>
+            <returns>True iff font could be aproximated.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagestring(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Draw a string horizontally
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagestringup(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Draw a string vertically - rotated 90 degrees counter-clockwise
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesx(PHP.Core.PhpResource)">
+            <summary>
+            Get image width
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagesy(PHP.Core.PhpResource)">
+            <summary>
+            Get image height
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagetruecolortopalette(PHP.Core.PhpResource,System.Boolean,System.Int32)">
+            <summary>
+            Convert a true colour image to a palette based image with a number of colours, optionally using dithering.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagettfbbox(System.Double,System.Double,System.String,System.String)">
+            <summary>
+            Give the bounding box of a text using TrueType fonts
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.MeasureString(System.String,System.Drawing.Font,System.Drawing.Point,System.Drawing.StringFormat)">
+            <summary>
+            Measure text without graphics object
+            </summary>
+            <param name="s"></param>
+            <param name="font"></param>
+            <param name="origin"></param>
+            <param name="sf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagettftext(PHP.Core.PhpResource,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Write text to the image using a TrueType font
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagetypes">
+            <summary>
+            Return the types of images supported in a bitfield - 1=GIF, 2=JPEG, 4=PNG, 8=WBMP, 16=XPM
+            IMG_GIF | IMG_JPG | IMG_PNG | IMG_WBMP | IMG_XPM
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagewbmp(PHP.Core.PhpResource)">
+            <summary>
+            Output WBMP image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagewbmp(PHP.Core.PhpResource,System.String)">
+            <summary>
+            Output WBMP image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagewbmp(PHP.Core.PhpResource,System.String,System.Int32)">
+            <summary>
+            Output WBMP image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.imagexbm(System.Int32,System.String,System.Int32)">
+            <summary>
+            Output XBM image to browser or file
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.jpeg2wbmp(System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Convert JPEG image to WBMP image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.png2wbmp(System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Convert PNG image to WBMP image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.GetImgType(System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Get the <see cref="T:PHP.Library.Gd2.PhpGd.ImgType"/> corresponding to the given <see cref="T:System.Drawing.Imaging.ImageFormat"/>.
+            </summary>
+            <param name="format"></param>
+            <returns>Corresponding PHP <see cref="T:PHP.Library.Gd2.PhpGd.ImgType"/> or <see cref="F:PHP.Library.Gd2.PhpGd.ImgType.Unknown"/>.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.CreateGdImageFrom(System.String,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Tries to load image from local file or from URL and checks its format for match if specified.
+            </summary>
+            <param name="filename"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.LoadBitmap(System.String,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Loads bitmap file from specified filename or URL and if it doesnt match specified format returns null.
+            </summary>
+            <param name="filename"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.GetEncoderInfo(System.String)">
+            <summary>
+            Returns the image codec with the given mime type
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.ToStream(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Save image to memory stream
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.MakeGrayscale(System.Drawing.Bitmap)">
+            <summary>
+            Makes specified Bitmap grayscaled
+            </summary>
+            <param name="bitmap">processed bitmap</param>
+            <returns>success indication</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.InvertColors(System.Drawing.Bitmap)">
+            <summary>
+            Inverts colors in specified Bitmap
+            </summary>
+            <param name="bitmap">processed bitmap</param>
+            <returns>success indication</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGd.RotateImage(System.Drawing.Image,System.Double,System.Drawing.Color)">
+            <summary>
+            Creates a new Image containing the same image only rotated
+            </summary>
+            <param name="image">The <see cref="T:System.Drawing.Image"/> to rotate</param>
+            <param name="angle">The amount to rotate the image, clockwise, in degrees</param>
+            <param name="color">Color used to fill background of new image.</param>
+            <returns>A new <see cref="T:System.Drawing.Bitmap"/> that is just large enough
+            to contain the rotated image without cutting any corners off.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="image"/> is null.</exception>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpGd.ImgType">
+            <summary>
+            Image types enumeration, corresponds to IMGTYPE_ PHP constants.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.GIF">
+            <summary>
+            Used as a return value by <see cref="M:PHP.Library.Gd2.PhpGd.imagetypes"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.JPG">
+            <summary>
+            Used as a return value by <see cref="M:PHP.Library.Gd2.PhpGd.imagetypes"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.JPEG">
+            <summary>
+            Used as a return value by <see cref="M:PHP.Library.Gd2.PhpGd.imagetypes"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.PNG">
+            <summary>
+            Used as a return value by <see cref="M:PHP.Library.Gd2.PhpGd.imagetypes"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.WBMP">
+            <summary>
+            Used as a return value by <see cref="M:PHP.Library.Gd2.PhpGd.imagetypes"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.XPM">
+            <summary>
+            Used as a return value by <see cref="M:PHP.Library.Gd2.PhpGd.imagetypes"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.Supported">
+            <summary>
+            A combinanation of IMG_ constants that are supported.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ImgType.Unknown">
+            <summary>
+            UNknown image type.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpGd.FilledArcStyles">
+            <summary>
+            Filled Arc Style types enumeration
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilledArcStyles.ROUNDED">
+            <summary>
+            A style constant used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilledarc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)"/> function.
+            This constant has the same value as IMG_ARC_PIE.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilledArcStyles.PIE">
+            <summary>
+            A style constant used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilledarc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilledArcStyles.CHORD">
+            <summary>
+            A style constant used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilledarc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilledArcStyles.NOFILL">
+            <summary>
+            A style constant used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilledarc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilledArcStyles.EDGED">
+            <summary>
+            A style constant used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilledarc(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpGd.ColorValues">
+            <summary>
+            Special Image Color values enumeration.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ColorValues.STYLED">
+            <summary>
+            Special color option which can be used in stead of color allocated with <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocate(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)"/> or <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocatealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ColorValues.BRUSHED">
+            <summary>
+            Special color option which can be used in stead of color allocated with <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocate(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)"/> or <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocatealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ColorValues.STYLEDBRUSHED">
+            <summary>
+            Special color option which can be used in stead of color allocated with <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocate(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)"/> or <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocatealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ColorValues.TILED">
+            <summary>
+            Special color option which can be used in stead of color allocated with <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocate(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)"/> or <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocatealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)"/>.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.ColorValues.TRANSPARENT">
+            <summary>
+            Special color option which can be used in stead of color allocated with <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocate(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32)"/> or <see cref="M:PHP.Library.Gd2.PhpGd.imagecolorallocatealpha(PHP.Core.PhpResource,System.Int32,System.Int32,System.Int32,System.Int32)"/>.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpGd.FilterTypes">
+            <summary>
+            Filled Arc Style types enumeration
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.NEGATE">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.GRAYSCALE">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.BRIGHTNESS">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.CONTRAST">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.COLORIZE">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.EDGEDETECT">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.EMBOSS">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.GAUSSIAN_BLUR">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.SELECTIVE_BLUR">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.MEAN_REMOVAL">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.SMOOTH">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.PhpGd.FilterTypes.PIXELATE">
+            <summary>
+            Special GD filter used by the <see cref="M:PHP.Library.Gd2.PhpGd.imagefilter(PHP.Core.PhpResource,System.Int32)"/> function.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.GdLibraryDescriptor">
+            <summary>
+            Describes the class library assembly content and configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdLibraryDescriptor.Loaded(PHP.Core.PhpLibraryAttribute,PHP.Core.LibraryConfigStore)">
+            <summary>
+            Called by the Core after the library is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdLibraryDescriptor.ParseConfig(PHP.Core.ConfigContextBase,PHP.Core.PhpConfigurationContext,System.Xml.XmlNode)">
+            <summary>
+            Parses a configuration section belonging to the MySql library. 
+            </summary>
+            <param name="result">A configuration context.</param>
+            <param name="context">The context of the configuration created by Phalanger Core.</param>
+            <param name="section">A XML node containing the configuration or its part.</param>
+            <returns>Updated configuration context.</returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.GdLibraryDescriptor.CreateConfigContext">
+            <summary>
+            Creates empty library configuration context.
+            </summary>
+            <returns>An initialized configuration context. Should not be a <B>null</B> reference.</returns>
+        </member>
+        <member name="P:PHP.Library.Gd2.GdLibraryDescriptor.Singleton">
+            <summary>
+            Stores one and only instance of the class that is created when the assembly is loaded.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.PhpGdImageResource">
+            <summary>
+            <see cref="T:PHP.Core.PhpResource"/> representing PHP image.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGdImageResource.#ctor(System.Drawing.Image)">
+            <summary>
+             Creates PhpGdImageResource without creating internal image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGdImageResource.#ctor(System.Drawing.Bitmap)">
+            <summary>
+             Creates PhpGdImageResource without creating internal image
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGdImageResource.FreeManaged">
+            <summary>
+            Free resources owned by this resource.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.PhpGdImageResource.ValidImage(PHP.Core.PhpResource)">
+            <summary>
+            Checks if resource is really image and if it exists
+            </summary>
+            <param name="handle"></param>
+            <returns></returns> 
+            <exception cref="T:PHP.Core.PhpException">Warning when resource is not valid <see cref="T:PHP.Library.Gd2.PhpGdImageResource"/>.</exception>
+        </member>
+        <member name="P:PHP.Library.Gd2.PhpGdImageResource.Image">
+            <summary>
+            Underlaying <see cref="T:System.Drawing.Bitmap"/> object. Cannot be <c>null</c> reference until it is not disposed.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.PhpGdImageResource.IsIndexed">
+            <summary>
+            Determine if the pixel format is indexed.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Gd2.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.empty_string_or_invalid_image">
+            <summary>
+              Looks up a localized string similar to Empty string or invalid image.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.failed_to_open_http_stream">
+            <summary>
+              Looks up a localized string similar to failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.failed_to_open_stream">
+            <summary>
+              Looks up a localized string similar to failed to open stream: No such file or directory &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.file_not_supported">
+            <summary>
+              Looks up a localized string similar to File &apos;{0}&apos; not supported.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.filename_cannot_be_empty">
+            <summary>
+              Looks up a localized string similar to Filename cannot be empty.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.image_resource_not_valid">
+            <summary>
+              Looks up a localized string similar to supplied argument is not a valid Image resource.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.invalid_font_filename">
+            <summary>
+              Looks up a localized string similar to Invalid font filename &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.invalid_image_dimensions">
+            <summary>
+              Looks up a localized string similar to Invalid image dimensions.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.must_be_positive_number_of_points">
+            <summary>
+              Looks up a localized string similar to You must give a positive number of points.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.not_valid_png">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not a valid PNG file.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.png_corrupted">
+            <summary>
+              Looks up a localized string similar to PNG file corrupted by ASCII conversion.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.read_error">
+            <summary>
+              Looks up a localized string similar to Read error!.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Gd2.Properties.Resources.unable_to_open_file">
+            <summary>
+              Looks up a localized string similar to Unable to open file &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Gd2.Utils.Resources">
+            <summary>
+            Assembly's resources.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Gd2.Utils.OpenStream(System.String)">
+            <summary>
+            Open stream using working directory and PHP include directories.
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Utils.ReadPhpBytes(System.String)">
+            <summary>
+            Reads PhpBytes from file using the PhpStream.
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PHP.Library.Gd2.Utils.ByteArrayCompare(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            Tests if specified portions of two byte arrays are equal
+            </summary>
+            <param name="array1">First array. Cannot be <c>null</c> reference.</param>
+            <param name="array2">Second array. Cannot be <c>null</c> reference.</param>
+            <param name="length">Amount of bytes to compare.</param>
+            <returns>returns true if both arrays are equal</returns>
+        </member>
+    </members>
+</doc>

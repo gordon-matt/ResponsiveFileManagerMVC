@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PhpNetPDOSQLServer</name>
+    </assembly>
+    <members>
+        <member name="M:PHP.Library.Data.PDOSQLServerConfiguration.GetSetRestore(PHP.Core.LocalConfiguration,System.String,System.Object,PHP.Library.IniAction)">
+            <summary>
+            Gets, sets, or restores a value of a legacy configuration option.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerConfiguration.LegacyOptionsToXml(System.Xml.XmlTextWriter,System.Collections.Hashtable,System.Boolean)">
+            <summary>
+            WrServers PDO legacy options and their values to XML text stream.
+            Skips options whose values are the same as default values of Phalanger.
+            </summary>
+            <param name="wrServerr">XML wrServerr.</param>
+            <param name="options">A hashtable containing PHP names and option values. Consumed options are removed from the table.</param>
+            <param name="wrServerPhpNames">Whether to add "phpName" attribute to option nodes.</param>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerConfiguration.RegisterLegacyOptions">
+            <summary>
+            Registers legacy ini-options.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOSQLServerConfiguration.Local">
+            <summary>
+            Gets the library configuration associated with the current script context.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOSQLServerConfiguration.DefaultLocal">
+            <summary>
+            Gets the default library configuration.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOSQLServerConfiguration.Global">
+            <summary>
+            Gets the global library configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerGlobalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Parses XML configuration file.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerGlobalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerLibraryDescriptor.Loaded(PHP.Core.PhpLibraryAttribute,PHP.Core.LibraryConfigStore)">
+            <summary>
+            Called by the Core after the library is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerLibraryDescriptor.ParseConfig(PHP.Core.ConfigContextBase,PHP.Core.PhpConfigurationContext,System.Xml.XmlNode)">
+            <summary>
+            Parses a configuration section belonging to the MySql library. 
+            </summary>
+            <param name="result">A configuration context.</param>
+            <param name="context">The context of the configuration created by Phalanger Core.</param>
+            <param name="section">A XML node containing the configuration or its part.</param>
+            <returns>Updated configuration context.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerLibraryDescriptor.CreateConfigContext">
+            <summary>
+            Creates empty library configuration context.
+            </summary>
+            <returns>An initialized configuration context. Should not be a <B>null</B> reference.</returns>
+        </member>
+        <member name="P:PHP.Library.Data.PDOSQLServerLibraryDescriptor.Singleton">
+            <summary>
+            Stores one and only instance of the class that is created when the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerLocalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Parses XML configuration file.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOSQLServerLocalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+    </members>
+</doc>

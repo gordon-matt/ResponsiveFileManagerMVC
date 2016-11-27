@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PhpNetSQLite</name>
+    </assembly>
+    <members>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.#ctor(System.String)">
+            <summary>
+            Creates a connection resource.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.GetResult(PHP.Library.Data.PhpDbConnection,System.Data.IDataReader,System.Boolean)">
+            <summary>
+            Gets a query result resource.
+            </summary>
+            <param name="connection">Database connection.</param>
+            <param name="reader">Data reader to be used for result resource population.</param>
+            <param name="convertTypes">Whether to convert data types to PHP ones.</param>
+            <returns>Result resource holding all resulting data of the query.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.CreateCommand">
+            <summary>
+            Command factory.
+            </summary>
+            <returns>An empty instance of <see cref="T:System.Data.SQLite.SQLiteCommand"/>.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.GetLastErrorNumber">
+            <summary>
+            Gets last error number.
+            </summary>
+            <returns>The error number it is known, -1 if unknown error occured, or zero on success.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.GetLastErrorMessage">
+            <summary>
+            Gets the last error message.
+            </summary>
+            <returns>The message or an empty string if no error occured.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.GetExceptionMessage(System.Exception)">
+            <summary>
+            Gets a message from an exception raised by the connector.
+            Removes the initial #{number} and the ending dot.
+            </summary>
+            <param name="e">Exception.</param>
+            <returns>The message.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="e"/> is a <B>null</B> reference.</exception>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbConnection.QueryGlobalVariable(System.String)">
+            <summary>
+            Queries server for a value of a global variable.
+            </summary>
+            <param name="name">Global variable name.</param>
+            <returns>Global variable value (converted).</returns>
+        </member>
+        <member name="P:PHP.Library.Data.PhpSQLiteDbConnection.Server">
+            <summary>
+            Server.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PhpSQLiteDbResult.#ctor(PHP.Library.Data.PhpDbConnection,System.Data.IDataReader,System.Boolean)">
+            <summary>
+            Creates an instance of a result resource.
+            </summary>
+            <param name="connection">Database connection.</param>
+            <param name="reader">Data reader from which to load results.</param>
+            <param name="convertTypes">Whether to convert resulting values to PHP types.</param>
+            <exception cref="T:System.ArgumentNullException">Argument is a <B>null</B> reference.</exception>
+        </member>
+        <member name="M:PHP.Library.Data.SQLite.Close(PHP.Core.PhpResource)">
+            <summary>
+            Closes a specified connection.
+            </summary>
+            <param name="linkIdentifier">The connection resource.</param>
+            <returns><B>true</B> on success, <B>false</B> on failure.</returns>
+        </member>
+        <member name="T:PHP.Library.Data.SQLite.QueryResultKeys">
+            <summary>
+            Query result array format.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLite.QueryResultKeys.ColumnNames">
+            <summary>
+            Add items keyed by column names.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLite.QueryResultKeys.Numbers">
+            <summary>
+            Add items keyed by column indices.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLite.QueryResultKeys.Both">
+            <summary>
+            Add both items keyed by column names and items keyd by column indices.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Data.SQLiteGlobalConfig">
+            <summary>
+            Script dependent SQLite configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteGlobalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Parses XML configuration file.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteGlobalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteLocalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteLocalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Parses XML configuration file.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteConfiguration.GetSetRestore(PHP.Core.LocalConfiguration,System.String,System.Object,PHP.Library.IniAction)">
+            <summary>
+            Gets, sets, or restores a value of a legacy configuration option.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteConfiguration.LegacyOptionsToXml(System.Xml.XmlTextWriter,System.Collections.Hashtable,System.Boolean)">
+            <summary>
+            Writes SQLite legacy options and their values to XML text stream.
+            Skips options whose values are the same as default values of Phalanger.
+            </summary>
+            <param name="writer">XML writer.</param>
+            <param name="options">A hashtable containing PHP names and option values. Consumed options are removed from the table.</param>
+            <param name="writePhpNames">Whether to add "phpName" attribute to option nodes.</param>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteConfiguration.RegisterLegacyOptions">
+            <summary>
+            Registers legacy ini-options.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.SQLiteConfiguration.Local">
+            <summary>
+            Gets the library configuration associated with the current script context.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.SQLiteConfiguration.DefaultLocal">
+            <summary>
+            Gets the default library configuration.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.SQLiteConfiguration.Global">
+            <summary>
+            Gets the global library configuration.
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Data.SQLiteLibraryDescriptor">
+            <summary>
+            Describes the class library assembly content and configuration.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteLibraryDescriptor.Loaded(PHP.Core.PhpLibraryAttribute,PHP.Core.LibraryConfigStore)">
+            <summary>
+            Called by the Core after the library is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteLibraryDescriptor.ParseConfig(PHP.Core.ConfigContextBase,PHP.Core.PhpConfigurationContext,System.Xml.XmlNode)">
+            <summary>
+            Parses a configuration section belonging to the MySql library. 
+            </summary>
+            <param name="result">A configuration context.</param>
+            <param name="context">The context of the configuration created by Phalanger Core.</param>
+            <param name="section">A XML node containing the configuration or its part.</param>
+            <returns>Updated configuration context.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.SQLiteLibraryDescriptor.CreateConfigContext">
+            <summary>
+            Creates empty library configuration context.
+            </summary>
+            <returns>An initialized configuration context. Should not be a <B>null</B> reference.</returns>
+        </member>
+        <member name="P:PHP.Library.Data.SQLiteLibraryDescriptor.Singleton">
+            <summary>
+            Stores one and only instance of the class that is created when the assembly is loaded.
+            </summary>
+        </member>
+    </members>
+</doc>

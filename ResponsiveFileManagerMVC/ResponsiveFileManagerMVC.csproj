@@ -1,0 +1,773 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBD74E90-AE7F-41E7-A932-BAF44CC88A66}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ResponsiveFileManagerMVC</RootNamespace>
+    <AssemblyName>ResponsiveFileManagerMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetClassLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4af37afe3cde05fb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetClassLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetCore.CodeDom, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetCore.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetCore.DuckTyping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetCore.DuckTyping.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetCore.Parsers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetCore.Parsers.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetCurl, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetCurl.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetGd2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetGd2.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetIconv, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetIconv.dll</HintPath>
+    </Reference>
+    <Reference Include="PhpNetMbstring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger4\PhpNetMbstring.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.81.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phalanger 3.0.0.4072 (bin)\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewEngine\PhpView.cs" />
+    <Compile Include="ViewEngine\PhpViewEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="filemanager\include\php_image_magician_custom.php" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="filemanager\config\.htaccess" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\ConnectManager.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\JplayerEvent.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\JplayerMp3.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\JplayerMp4.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\JplayerRtmp.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\JplayerStatus.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\happyworm\jPlayer\TraceOut.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\Jplayer.as" />
+    <Content Include="filemanager\js\jPlayer\actionscript\Jplayer.fla" />
+    <Content Include="filemanager\js\jPlayer\jplayer.jquery.json" />
+    <Content Include="filemanager\js\jPlayer\package.json" />
+    <Content Include="filemanager\js\jPlayer\README.md" />
+    <Content Include="filemanager\js\jPlayer\skin\blue.monday\skin.handlebars" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Icon.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="filemanager\ajax_calls.php" />
+    <Content Include="filemanager\config\config.php" />
+    <Content Include="filemanager\css\style.css" />
+    <Content Include="filemanager\dialog.php" />
+    <Content Include="filemanager\execute.php" />
+    <Content Include="filemanager\force_download.php" />
+    <Content Include="filemanager\img\clipboard_apply.png" />
+    <Content Include="filemanager\img\clipboard_clear.png" />
+    <Content Include="filemanager\img\copy.png" />
+    <Content Include="filemanager\img\cut.png" />
+    <Content Include="filemanager\img\date.png" />
+    <Content Include="filemanager\img\dimension.png" />
+    <Content Include="filemanager\img\down.png" />
+    <Content Include="filemanager\img\download.png" />
+    <Content Include="filemanager\img\duplicate.png" />
+    <Content Include="filemanager\img\edit_img.png" />
+    <Content Include="filemanager\img\file_edit.png" />
+    <Content Include="filemanager\img\glyphicons-halflings-white.png" />
+    <Content Include="filemanager\img\glyphicons-halflings.png" />
+    <Content Include="filemanager\img\ico\ac3.jpg" />
+    <Content Include="filemanager\img\ico\accdb.jpg" />
+    <Content Include="filemanager\img\ico\ade.jpg" />
+    <Content Include="filemanager\img\ico\adp.jpg" />
+    <Content Include="filemanager\img\ico\ai.jpg" />
+    <Content Include="filemanager\img\ico\aiff.jpg" />
+    <Content Include="filemanager\img\ico\avi.jpg" />
+    <Content Include="filemanager\img\ico\bmp.jpg" />
+    <Content Include="filemanager\img\ico\css.jpg" />
+    <Content Include="filemanager\img\ico\csv.jpg" />
+    <Content Include="filemanager\img\ico\default.jpg" />
+    <Content Include="filemanager\img\ico\dmg.jpg" />
+    <Content Include="filemanager\img\ico\doc.jpg" />
+    <Content Include="filemanager\img\ico\docx.jpg" />
+    <Content Include="filemanager\img\ico\favicon.ico" />
+    <Content Include="filemanager\img\ico\fla.jpg" />
+    <Content Include="filemanager\img\ico\flv.jpg" />
+    <Content Include="filemanager\img\ico\folder.png" />
+    <Content Include="filemanager\img\ico\folder_back.png" />
+    <Content Include="filemanager\img\ico\gif.jpg" />
+    <Content Include="filemanager\img\ico\gz.jpg" />
+    <Content Include="filemanager\img\ico\html.jpg" />
+    <Content Include="filemanager\img\ico\iso.jpg" />
+    <Content Include="filemanager\img\ico\jpeg.jpg" />
+    <Content Include="filemanager\img\ico\jpg.jpg" />
+    <Content Include="filemanager\img\ico\log.jpg" />
+    <Content Include="filemanager\img\ico\m4a.jpg" />
+    <Content Include="filemanager\img\ico\mdb.jpg" />
+    <Content Include="filemanager\img\ico\mid.jpg" />
+    <Content Include="filemanager\img\ico\mov.jpg" />
+    <Content Include="filemanager\img\ico\mp3.jpg" />
+    <Content Include="filemanager\img\ico\mp4.jpg" />
+    <Content Include="filemanager\img\ico\mpeg.jpg" />
+    <Content Include="filemanager\img\ico\mpg.jpg" />
+    <Content Include="filemanager\img\ico\odb.jpg" />
+    <Content Include="filemanager\img\ico\odf.jpg" />
+    <Content Include="filemanager\img\ico\odg.jpg" />
+    <Content Include="filemanager\img\ico\odp.jpg" />
+    <Content Include="filemanager\img\ico\ods.jpg" />
+    <Content Include="filemanager\img\ico\odt.jpg" />
+    <Content Include="filemanager\img\ico\ogg.jpg" />
+    <Content Include="filemanager\img\ico\otg.jpg" />
+    <Content Include="filemanager\img\ico\otp.jpg" />
+    <Content Include="filemanager\img\ico\ots.jpg" />
+    <Content Include="filemanager\img\ico\ott.jpg" />
+    <Content Include="filemanager\img\ico\pdf.jpg" />
+    <Content Include="filemanager\img\ico\png.jpg" />
+    <Content Include="filemanager\img\ico\ppt.jpg" />
+    <Content Include="filemanager\img\ico\pptx.jpg" />
+    <Content Include="filemanager\img\ico\psd.jpg" />
+    <Content Include="filemanager\img\ico\rar.jpg" />
+    <Content Include="filemanager\img\ico\rtf.jpg" />
+    <Content Include="filemanager\img\ico\sql.jpg" />
+    <Content Include="filemanager\img\ico\svg.jpg" />
+    <Content Include="filemanager\img\ico\tar.jpg" />
+    <Content Include="filemanager\img\ico\tiff.jpg" />
+    <Content Include="filemanager\img\ico\txt.jpg" />
+    <Content Include="filemanager\img\ico\wav.jpg" />
+    <Content Include="filemanager\img\ico\webm.jpg" />
+    <Content Include="filemanager\img\ico\wma.jpg" />
+    <Content Include="filemanager\img\ico\xhtml.jpg" />
+    <Content Include="filemanager\img\ico\xls.jpg" />
+    <Content Include="filemanager\img\ico\xlsx.jpg" />
+    <Content Include="filemanager\img\ico\xml.jpg" />
+    <Content Include="filemanager\img\ico\zip.jpg" />
+    <Content Include="filemanager\img\ico_dark\ac3.jpg" />
+    <Content Include="filemanager\img\ico_dark\accdb.jpg" />
+    <Content Include="filemanager\img\ico_dark\ade.jpg" />
+    <Content Include="filemanager\img\ico_dark\adp.jpg" />
+    <Content Include="filemanager\img\ico_dark\ai.jpg" />
+    <Content Include="filemanager\img\ico_dark\aiff.jpg" />
+    <Content Include="filemanager\img\ico_dark\avi.jpg" />
+    <Content Include="filemanager\img\ico_dark\bmp.jpg" />
+    <Content Include="filemanager\img\ico_dark\css.jpg" />
+    <Content Include="filemanager\img\ico_dark\csv.jpg" />
+    <Content Include="filemanager\img\ico_dark\default.jpg" />
+    <Content Include="filemanager\img\ico_dark\dmg.jpg" />
+    <Content Include="filemanager\img\ico_dark\doc.jpg" />
+    <Content Include="filemanager\img\ico_dark\docx.jpg" />
+    <Content Include="filemanager\img\ico_dark\favicon.ico" />
+    <Content Include="filemanager\img\ico_dark\fla.jpg" />
+    <Content Include="filemanager\img\ico_dark\flv.jpg" />
+    <Content Include="filemanager\img\ico_dark\folder.png" />
+    <Content Include="filemanager\img\ico_dark\folder_back.png" />
+    <Content Include="filemanager\img\ico_dark\gif.jpg" />
+    <Content Include="filemanager\img\ico_dark\gz.jpg" />
+    <Content Include="filemanager\img\ico_dark\html.jpg" />
+    <Content Include="filemanager\img\ico_dark\iso.jpg" />
+    <Content Include="filemanager\img\ico_dark\jpeg.jpg" />
+    <Content Include="filemanager\img\ico_dark\jpg.jpg" />
+    <Content Include="filemanager\img\ico_dark\log.jpg" />
+    <Content Include="filemanager\img\ico_dark\m4a.jpg" />
+    <Content Include="filemanager\img\ico_dark\mdb.jpg" />
+    <Content Include="filemanager\img\ico_dark\mid.jpg" />
+    <Content Include="filemanager\img\ico_dark\mov.jpg" />
+    <Content Include="filemanager\img\ico_dark\mp3.jpg" />
+    <Content Include="filemanager\img\ico_dark\mp4.jpg" />
+    <Content Include="filemanager\img\ico_dark\mpeg.jpg" />
+    <Content Include="filemanager\img\ico_dark\mpg.jpg" />
+    <Content Include="filemanager\img\ico_dark\odb.jpg" />
+    <Content Include="filemanager\img\ico_dark\odf.jpg" />
+    <Content Include="filemanager\img\ico_dark\odg.jpg" />
+    <Content Include="filemanager\img\ico_dark\odp.jpg" />
+    <Content Include="filemanager\img\ico_dark\ods.jpg" />
+    <Content Include="filemanager\img\ico_dark\odt.jpg" />
+    <Content Include="filemanager\img\ico_dark\ogg.jpg" />
+    <Content Include="filemanager\img\ico_dark\otg.jpg" />
+    <Content Include="filemanager\img\ico_dark\otp.jpg" />
+    <Content Include="filemanager\img\ico_dark\ots.jpg" />
+    <Content Include="filemanager\img\ico_dark\ott.jpg" />
+    <Content Include="filemanager\img\ico_dark\pdf.jpg" />
+    <Content Include="filemanager\img\ico_dark\png.jpg" />
+    <Content Include="filemanager\img\ico_dark\ppt.jpg" />
+    <Content Include="filemanager\img\ico_dark\pptx.jpg" />
+    <Content Include="filemanager\img\ico_dark\psd.jpg" />
+    <Content Include="filemanager\img\ico_dark\rar.jpg" />
+    <Content Include="filemanager\img\ico_dark\rtf.jpg" />
+    <Content Include="filemanager\img\ico_dark\sql.jpg" />
+    <Content Include="filemanager\img\ico_dark\svg.jpg" />
+    <Content Include="filemanager\img\ico_dark\tar.jpg" />
+    <Content Include="filemanager\img\ico_dark\tiff.jpg" />
+    <Content Include="filemanager\img\ico_dark\txt.jpg" />
+    <Content Include="filemanager\img\ico_dark\wav.jpg" />
+    <Content Include="filemanager\img\ico_dark\webm.jpg" />
+    <Content Include="filemanager\img\ico_dark\wma.jpg" />
+    <Content Include="filemanager\img\ico_dark\xhtml.jpg" />
+    <Content Include="filemanager\img\ico_dark\xls.jpg" />
+    <Content Include="filemanager\img\ico_dark\xlsx.jpg" />
+    <Content Include="filemanager\img\ico_dark\xml.jpg" />
+    <Content Include="filemanager\img\ico_dark\zip.jpg" />
+    <Content Include="filemanager\img\info.png" />
+    <Content Include="filemanager\img\key.png" />
+    <Content Include="filemanager\img\label.png" />
+    <Content Include="filemanager\img\loading.gif" />
+    <Content Include="filemanager\img\logo.png" />
+    <Content Include="filemanager\img\preview.png" />
+    <Content Include="filemanager\img\processing.gif" />
+    <Content Include="filemanager\img\rename.png" />
+    <Content Include="filemanager\img\size.png" />
+    <Content Include="filemanager\img\sort.png" />
+    <Content Include="filemanager\img\storing_animation.gif" />
+    <Content Include="filemanager\img\up.png" />
+    <Content Include="filemanager\img\upload.png" />
+    <Content Include="filemanager\img\url.png" />
+    <Content Include="filemanager\img\zip.png" />
+    <Content Include="filemanager\include\mime_type_lib.php" />
+    <Content Include="filemanager\include\php_image_magician.php" />
+    <Content Include="filemanager\include\Response.php" />
+    <Content Include="filemanager\include\utils.php" />
+    <Content Include="filemanager\js\include.js" />
+    <Content Include="filemanager\js\jPlayer\add-on\jplayer.playlist.js" />
+    <Content Include="filemanager\js\jPlayer\add-on\jquery.jplayer.inspector.js" />
+    <Content Include="filemanager\js\jPlayer\jquery.jplayer\Jplayer.swf" />
+    <Content Include="filemanager\js\jPlayer\jquery.jplayer\jquery.jplayer.js" />
+    <Content Include="filemanager\js\jPlayer\MIT-LICENSE.txt" />
+    <Content Include="filemanager\js\jPlayer\popcorn\player\popcorn.jplayer.js" />
+    <Content Include="filemanager\js\jPlayer\skin\blue.monday\jplayer.blue.monday.css" />
+    <Content Include="filemanager\js\jPlayer\skin\blue.monday\jplayer.blue.monday.jpg" />
+    <Content Include="filemanager\js\jPlayer\skin\blue.monday\jplayer.blue.monday.seeking.gif" />
+    <Content Include="filemanager\js\jPlayer\skin\blue.monday\jplayer.blue.monday.video.play.png" />
+    <Content Include="filemanager\js\jPlayer\skin\pink.flag\jplayer.pink.flag.css" />
+    <Content Include="filemanager\js\jPlayer\skin\pink.flag\jplayer.pink.flag.jpg" />
+    <Content Include="filemanager\js\jPlayer\skin\pink.flag\jplayer.pink.flag.seeking.gif" />
+    <Content Include="filemanager\js\jPlayer\skin\pink.flag\jplayer.pink.flag.video.play.png" />
+    <Content Include="filemanager\js\modernizr.custom.js" />
+    <Content Include="filemanager\js\plugins.js" />
+    <Content Include="filemanager\js\ViewerJS\AGPL-3.0.txt" />
+    <Content Include="filemanager\js\ViewerJS\compatibility.js" />
+    <Content Include="filemanager\js\ViewerJS\example.local.css" />
+    <Content Include="filemanager\js\ViewerJS\images\kogmbh.png" />
+    <Content Include="filemanager\js\ViewerJS\images\nlnet.png" />
+    <Content Include="filemanager\js\ViewerJS\images\texture.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-download.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-fullscreen.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-menuArrows.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-pageDown.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-pageUp.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-presentation.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-zoomIn.png" />
+    <Content Include="filemanager\js\ViewerJS\images\toolbarButton-zoomOut.png" />
+    <Content Include="filemanager\js\ViewerJS\index.html" />
+    <Content Include="filemanager\js\ViewerJS\local.css" />
+    <Content Include="filemanager\js\ViewerJS\ODFViewerPlugin.css" />
+    <Content Include="filemanager\js\ViewerJS\ODFViewerPlugin.js" />
+    <Content Include="filemanager\js\ViewerJS\pdf.js" />
+    <Content Include="filemanager\js\ViewerJS\pdf.worker.js" />
+    <Content Include="filemanager\js\ViewerJS\pdfjsversion.js" />
+    <Content Include="filemanager\js\ViewerJS\PDFViewerPlugin.css" />
+    <Content Include="filemanager\js\ViewerJS\PDFViewerPlugin.js" />
+    <Content Include="filemanager\js\ViewerJS\PluginLoader.js" />
+    <Content Include="filemanager\js\ViewerJS\text_layer_builder.js" />
+    <Content Include="filemanager\js\ViewerJS\ui_utils.js" />
+    <Content Include="filemanager\js\ViewerJS\viewer.css" />
+    <Content Include="filemanager\js\ViewerJS\viewer.js" />
+    <Content Include="filemanager\js\ViewerJS\webodf.js" />
+    <Content Include="filemanager\js\ZeroClipboard.swf" />
+    <Content Include="filemanager\lang\az_AZ.php" />
+    <Content Include="filemanager\lang\bg_BG.php" />
+    <Content Include="filemanager\lang\ca.php" />
+    <Content Include="filemanager\lang\cs.php" />
+    <Content Include="filemanager\lang\da.php" />
+    <Content Include="filemanager\lang\de.php" />
+    <Content Include="filemanager\lang\el_GR.php" />
+    <Content Include="filemanager\lang\en_EN.php" />
+    <Content Include="filemanager\lang\es.php" />
+    <Content Include="filemanager\lang\fa.php" />
+    <Content Include="filemanager\lang\fr_FR.php" />
+    <Content Include="filemanager\lang\he_IL.php" />
+    <Content Include="filemanager\lang\hr.php" />
+    <Content Include="filemanager\lang\hu_HU.php" />
+    <Content Include="filemanager\lang\id.php" />
+    <Content Include="filemanager\lang\it.php" />
+    <Content Include="filemanager\lang\ja.php" />
+    <Content Include="filemanager\lang\languages.php" />
+    <Content Include="filemanager\lang\lt.php" />
+    <Content Include="filemanager\lang\mn_MN.php" />
+    <Content Include="filemanager\lang\nb_NO.php" />
+    <Content Include="filemanager\lang\nl.php" />
+    <Content Include="filemanager\lang\pl.php" />
+    <Content Include="filemanager\lang\pt_BR.php" />
+    <Content Include="filemanager\lang\pt_PT.php" />
+    <Content Include="filemanager\lang\ru.php" />
+    <Content Include="filemanager\lang\sk.php" />
+    <Content Include="filemanager\lang\sl.php" />
+    <Content Include="filemanager\lang\sv_SE.php" />
+    <Content Include="filemanager\lang\tr_TR.php" />
+    <Content Include="filemanager\lang\uk_UA.php" />
+    <Content Include="filemanager\lang\zh_CN.php" />
+    <Content Include="filemanager\plugin.min.js" />
+    <Content Include="filemanager\upload.php" />
+    <Content Include="filemanager\uploader\index.php" />
+    <Content Include="filemanager\uploader\jupload.php" />
+    <Content Include="filemanager\uploader\success.jpg" />
+    <Content Include="filemanager\uploader\success.php" />
+    <Content Include="filemanager\uploader\wjhk.jupload.jar" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\css\dialog.css" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\buttons.png" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\icons.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\items.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\menu_arrow.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\menu_check.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\progress.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\img\tabs.gif" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\editable_selects.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\form_utils.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\mctabs.js" />
+    <Content Include="Scripts\tinymce\plugins\compat3x\utils\validate.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example\dialog.html" />
+    <Content Include="Scripts\tinymce\plugins\example\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\responsivefilemanager\img\insertfile.gif" />
+    <Content Include="Scripts\tinymce\plugins\responsivefilemanager\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\address.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\article.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\aside.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\blockquote.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\div.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\dl.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\figure.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h1.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h2.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h3.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h4.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h5.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\h6.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\hgroup.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\ol.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\p.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\pre.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\section.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\img\ul.gif" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.js" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\tinymce\tinymce.js" />
+    <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Notes.txt" />
+    <Content Include="Views\Home\IndexPHP.php" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.json" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.json" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\IFrame.cshtml" />
+    <Content Include="Views\Home\Standalone.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Media\Thumbs\" />
+    <Folder Include="Media\Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>36653</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36653/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

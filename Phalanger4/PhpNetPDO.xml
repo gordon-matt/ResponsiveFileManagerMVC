@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PhpNetPDO</name>
+    </assembly>
+    <members>
+        <member name="T:PHP.Library.Data.PDO">
+            <summary>
+            The PDO class
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDO.#cctor">
+            <summary>
+            Static constructor
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDO.SplitDsnParams(System.String)">
+            <summary>
+            Split DSN parameters
+            </summary>
+            <param name="dsn">DSN to split</param>
+            <returns>Values</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PDO.#ctor(PHP.Core.ScriptContext,System.Boolean)">
+            <summary>
+            For internal purposes only.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDO.#ctor(PHP.Core.ScriptContext,PHP.Core.Reflection.DTypeDesc)">
+            <summary>
+            For internal purposes only.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDO.Driver">
+            <summary>
+            The driver instance
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDO.Transaction">
+            <summary>
+            Current transaction
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDO.PDOConnection">
+            <summary>
+            Current database connection.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDO.Connection">
+            <summary>
+            Current database connection.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOConfiguration.GetSetRestore(PHP.Core.LocalConfiguration,System.String,System.Object,PHP.Library.IniAction)">
+            <summary>
+            Gets, sets, or restores a value of a legacy configuration option.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOConfiguration.LegacyOptionsToXml(System.Xml.XmlTextWriter,System.Collections.Hashtable,System.Boolean)">
+            <summary>
+            Writes PDO legacy options and their values to XML text stream.
+            Skips options whose values are the same as default values of Phalanger.
+            </summary>
+            <param name="writer">XML writer.</param>
+            <param name="options">A hashtable containing PHP names and option values. Consumed options are removed from the table.</param>
+            <param name="writePhpNames">Whether to add "phpName" attribute to option nodes.</param>
+        </member>
+        <member name="M:PHP.Library.Data.PDOConfiguration.RegisterLegacyOptions">
+            <summary>
+            Registers legacy ini-options.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOConfiguration.Local">
+            <summary>
+            Gets the library configuration associated with the current script context.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOConfiguration.DefaultLocal">
+            <summary>
+            Gets the default library configuration.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOConfiguration.Global">
+            <summary>
+            Gets the global library configuration.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOConnection.PendingReader">
+            <summary>
+            Pending DB data reader.
+            </summary>
+        </member>
+        <member name="P:PHP.Library.Data.PDOConnection.LastCommand">
+            <summary>
+            Last DB command. Used internally by PDO driver.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOException.#ctor(PHP.Core.ScriptContext,System.Boolean)">
+            <summary>
+            For internal purposes only.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOException.#ctor(PHP.Core.ScriptContext,PHP.Core.Reflection.DTypeDesc)">
+            <summary>
+            For internal purposes only.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Deserializing constructor.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOGlobalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Parses XML configuration file.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOGlobalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PDOLibraryDescriptor.Loaded(PHP.Core.PhpLibraryAttribute,PHP.Core.LibraryConfigStore)">
+            <summary>
+            Called by the Core after the library is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOLibraryDescriptor.ParseConfig(PHP.Core.ConfigContextBase,PHP.Core.PhpConfigurationContext,System.Xml.XmlNode)">
+            <summary>
+            Parses a configuration section belonging to the MySql library. 
+            </summary>
+            <param name="result">A configuration context.</param>
+            <param name="context">The context of the configuration created by Phalanger Core.</param>
+            <param name="section">A XML node containing the configuration or its part.</param>
+            <returns>Updated configuration context.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PDOLibraryDescriptor.CreateConfigContext">
+            <summary>
+            Creates empty library configuration context.
+            </summary>
+            <returns>An initialized configuration context. Should not be a <B>null</B> reference.</returns>
+        </member>
+        <member name="P:PHP.Library.Data.PDOLibraryDescriptor.Singleton">
+            <summary>
+            Stores one and only instance of the class that is created when the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:PHP.Library.Data.PDOLocalConfig.DeepCopy">
+            <summary>
+            Creates a deep copy of the configuration record.
+            </summary>
+            <returns>The copy.</returns>
+        </member>
+        <member name="M:PHP.Library.Data.PDOLocalConfig.Parse(System.String,System.String,System.Xml.XmlNode)">
+            <summary>
+            Parses XML configuration file.
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.PDOParamType.PDO_PARAM_INT">
+            <summary>
+            int as in long (the php native int type).
+            If you mark a column as an int, PDO expects get_col to return
+            a pointer to a long
+            </summary>
+        </member>
+        <member name="T:PHP.Library.Data.SQLSTATES">
+            <summary>
+            http://developer.mimer.com/documentation/html_92/Mimer_SQL_Mobile_DocSet/App_Return_Codes2.html
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_null">
+            <summary>
+            null value eliminated in set function
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_right_truncation">
+            <summary>
+            string data, right truncation
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_insufficient_descriptor">
+            <summary>
+            insufficient item descriptor areas
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_privilege_not_revoked">
+            <summary>
+            privilege not revoked
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_privileges_not_granted">
+            <summary>
+            privilege not granted
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_implicit_padding">
+            <summary>
+            implicit zero-bit padding
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_error_in_row">
+            <summary>
+            error in row
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_option_value_changed">
+            <summary>
+            option value changed
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_cancel_as_close">
+            <summary>
+            cancel treated as close
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_resultset">
+            <summary>
+            attempt to fetch before the result set returned the first rowset
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.Warning_fractionnal_truncation">
+            <summary>
+            fractional truncation
+            </summary>
+        </member>
+        <member name="F:PHP.Library.Data.SQLSTATES.NoData">
+            <summary>
+            No Data
+            </summary>
+        </member>
+    </members>
+</doc>

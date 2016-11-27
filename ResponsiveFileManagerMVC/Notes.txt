@@ -1,0 +1,52 @@
+﻿- filemanager must be in root of site (otherwise it doesn't give the correct URLs back to TinyMCE)
+- the following is required in the web.config:
+=======================================================================
+<configuration>
+  <configSections>
+    <section name="phpNet" type="PHP.Core.ConfigurationSectionHandler, PhpNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71" />
+  </configSections>
+
+  <phpNet>
+    <classLibrary>
+      <add assembly="PhpNetClassLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4af37afe3cde05fb" section="bcl" />
+      <add assembly="PhpNetMbstring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03" />
+      <add assembly="PhpNetGd2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03" />
+    </classLibrary>
+  </phpNet>
+
+  <system.webServer>
+    <handlers>
+      <add name="Phalanger" path="*.php" verb="*" type="PHP.Core.RequestHandler, PhpNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71" resourceType="Unspecified" preCondition="integratedMode" />
+    </handlers>
+  </system.webServer>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <probing privatePath="Phalanger"/>
+	</assemblyBinding>
+  </runtime>
+</configuration>
+=======================================================================
+
+
+- remember to comment out all "exit;" commands in PHP files, as they throw errors if not
+
+- I made the following function always return true to ignore the error messages regarding "memory_limit" not being able to be set:
+	/filemanager/include/utils.php -> function image_check_memory_usage($img, $max_breedte, $max_hoogte)
+	More info: https://github.com/DEVSENSE/Phalanger/blob/master/Source/ClassLibrary/PhpIni.CLR.cs (see: GsrMemoryLimit())
+
+- the following function was modified:
+	/filemanager/include/php_image_magician.php -> public function resizeImage($newWidth, $newHeight, $option = 0, $sharpen = false, $autoRotate = false)
+
+	At the end of the function, I commented out the code for sharpening the image. This was done because the Phalanger implementation of Gd2
+	does not support "imageconvolution" (see: https://github.com/DEVSENSE/Phalanger/blob/master/Source/Extensions/Gd2/PhpGd.cs) which the sharpen function was trying to use and then was throwing errors
+
+- modified function:
+	/filemanager/include/utils.php -> rename_folder($old_path, $name, $transliteration)
+	due to problems on Windows (permission denied to use PHP's rename function on a folder). Strangely it's fine with files.
+
+
+	CUSTOM Phalanger build to include imagecolorsforindex() from:
+	https://github.com/DEVSENSE/Phalanger/pull/19/files
+
+- it's likely that not all of the referenced Phalanger DLLs are required. Haven't yet tested which ones can be removed.
