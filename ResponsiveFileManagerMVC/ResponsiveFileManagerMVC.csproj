@@ -95,40 +95,40 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PhpNetClassLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4af37afe3cde05fb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetClassLibrary.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetClassLibrary.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetCore.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetCore.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetCore.CodeDom, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetCore.CodeDom.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetCore.CodeDom.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetCore.DuckTyping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetCore.DuckTyping.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetCore.DuckTyping.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetCore.Parsers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0a8e8c4c76728c71, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetCore.Parsers.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetCore.Parsers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetCurl, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetCurl.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetCurl.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetGd2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetGd2.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetGd2.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetIconv, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetIconv.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetIconv.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PhpNetMbstring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2771987119c16a03, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Phalanger4\PhpNetMbstring.dll</HintPath>
+      <HintPath>..\packages\ResponsiveFileManagerMVC.Phalanger.1.0.0\lib\PhpNetMbstring.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

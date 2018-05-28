@@ -265,7 +265,7 @@ $config = array(
 	//The filter and sorter are managed through both javascript and php scripts because if you have a lot of
 	//file in a folder the javascript script can't sort all or filter all, so the filemanager switch to php script.
 	//The plugin automatic swich javascript to php when the current folder exceeds the below limit of files number
-	'file_number_limit_js'                    => 500,
+	'file_number_limit_js'                    => 0, // 2018.05.28: Changed from 500 to 0. See: https://github.com/trippo/ResponsiveFilemanager/issues/194
 
 	//**********************
 	// Hidden files and folders
